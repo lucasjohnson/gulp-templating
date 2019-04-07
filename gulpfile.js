@@ -1,4 +1,4 @@
-const gulp = require("gulp");
+const gulp = require('gulp');
 const newer = require('gulp-newer');
 const imagemin = require('gulp-imagemin');
 const concat = require('gulp-concat');
@@ -20,14 +20,17 @@ const devBuild = (process.env.NODE_ENV !== 'production');
 
 const folder = {
   src: './src/',
-  build: './build/'
+  build: './build/',
+  images: 'images/**/*',
+  js: 'js/**/*',
+  css: 'scss/main.scss'
 };
 
 function images() {
   const out = folder.build + 'images/';
   return(
     gulp
-      .src(folder.src + 'images/**/*')
+      .src(folder.src + folder.images)
       .pipe(newer(out))
       .pipe(imagemin({ optimizationLevel: 5 }))
       .pipe(gulp.dest(out))
@@ -36,9 +39,9 @@ function images() {
 
 function js() {
 
-  const jsBuild = gulp.src(folder.src + 'js/**/*')
+  const jsBuild = gulp.src(folder.src + folder.js)
     .pipe(deporder())
-    .pipe(concat('main.js'));
+    .pipe(concat('main-bundle.js'));
 
   if (!devBuild) {
     jsBuild = jsBuild
@@ -62,7 +65,7 @@ function css() {
 
   return (
     gulp
-      .src(folder.src + 'scss/main.scss')
+      .src(folder.src + folder.css)
       .pipe(sourcemaps.init())
       .pipe(sass({
         outputStyle: 'expanded',
@@ -73,10 +76,16 @@ function css() {
       .on('error', sass.logError)
       .pipe(postcss(postCssOptions))
       .pipe(sourcemaps.write())
+      .pipe(concat('main-bundle.css'))
       .pipe(gulp.dest(folder.build + 'css/'))
   )
 }
 
+gulp.task('watch', function() {
+  gulp.watch(folder.src + folder.images, gulp.series('images'));
+  gulp.watch(folder.src + folder.js, gulp.series('js'));
+  gulp.watch(folder.src + folder.css, gulp.series('css'));
+});
 
 exports.images = images;
 exports.js = js;
