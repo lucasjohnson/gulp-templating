@@ -12,7 +12,7 @@ const postcss = require("gulp-postcss");
 const cssnano = require("cssnano");
 const assets = require('postcss-assets');
 const mqpacker = require('css-mqpacker');
-const browserSync = require('browser-sync');
+const browserSync = require('browser-sync').create();
 const runSequence = require('run-sequence');
 
 
@@ -21,7 +21,7 @@ const runSequence = require('run-sequence');
 // default css
 
 gulp.task('browserSync', function() {
-  browserSync({
+  browserSync.init({
     server: {
       baseDir: 'src'
     }
@@ -53,11 +53,9 @@ gulp.task('sass', function() {
 })
 
 gulp.task('watch', function() {
-  gulp.watch('src/scss/**/*.scss', ['sass']);
+  gulp.watch('src/scss/**/*.scss', gulp.series('sass'));
   gulp.watch('src/*.html', browserSync.reload);
   gulp.watch('src/js/**/*.js', browserSync.reload);
 });
 
-gulp.task('default', function() {
-  runSequence(['sass', 'browserSync'], 'watch')
-})
+gulp.task('default', gulp.parallel('watch','browserSync'));
