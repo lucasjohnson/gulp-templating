@@ -9,16 +9,14 @@ const sass = require("gulp-sass");
 const sourcemaps = require('gulp-sourcemaps');
 const autoprefixer = require('autoprefixer');
 const postcss = require("gulp-postcss");
+const postcssNormalize = require('postcss-normalize');
 const cssnano = require("cssnano");
 const assets = require('postcss-assets');
 const mqpacker = require('css-mqpacker');
 const browserSync = require('browser-sync').create();
-const runSequence = require('run-sequence');
+const nunjucksRender = require('gulp-nunjucks-render');
+const data = require('gulp-data');
 
-
-// install css reset
-// nutchucks
-// default css
 
 gulp.task('browserSync', function() {
   browserSync.init({
@@ -31,7 +29,11 @@ gulp.task('browserSync', function() {
 const postCssOptions = [
   assets({ loadPaths: ['images/'] }),
   autoprefixer({ browsers: ['last 2 versions', '> 2%'] }),
-  mqpacker
+  mqpacker,
+  postcssNormalize({
+    browsers: 'last 2 versions',
+    forceImport: true
+  })
 ];
 
 gulp.task('sass', function() {
@@ -52,8 +54,20 @@ gulp.task('sass', function() {
     }));
 })
 
+gulp.task('nunjucks', function() {
+  return gulp.src('src/pages/**/*.+(html|nunjucks|njk)')
+    // .pipe(data(function() {
+    //   return require('src/data/data.json')
+    // }))
+    .pipe(nunjucksRender({
+      path: ['src/templates']
+    }))
+    .pipe(gulp.dest('src'))
+})
+
 gulp.task('watch', function() {
   gulp.watch('src/scss/**/*.scss', gulp.series('sass'));
+  gulp.watch('src/pages/**/*.+(html|nunjucks|njk)', gulp.series('nunjucks'))
   gulp.watch('src/*.html', browserSync.reload);
   gulp.watch('src/js/**/*.js', browserSync.reload);
 });
