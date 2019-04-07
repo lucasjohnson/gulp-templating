@@ -9,8 +9,10 @@
     "browser-sync": "^2.26.3",
     "css-mqpacker": "^7.0.0",
     "cssnano": "^4.1.10",
-    "gulp": "github:gulpjs/gulp",
+    "del": "^4.1.0",
+    "gulp": "^3.9.0",
     "gulp-autoprefixer": "^6.0.0",
+    "gulp-babel": "^8.0.0",
     "gulp-concat": "^2.6.1",
     "gulp-deporder": "^1.1.0",
     "gulp-imagemin": "^5.0.3",
@@ -20,7 +22,8 @@
     "gulp-sourcemaps": "^2.6.5",
     "gulp-strip-debug": "^3.0.0",
     "gulp-uglify": "^3.0.2",
-    "postcss-assets": "^5.0.0"
+    "postcss-assets": "^5.0.0",
+    "run-sequence": "^2.2.1"
   },
   "scripts": {},
   "author": "",
