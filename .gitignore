@@ -4,3 +4,4 @@ build
 package-lock.json
 src/scss/project
 yarn.lock
+pnpm-lock.yaml
