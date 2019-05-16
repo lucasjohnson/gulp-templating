@@ -1,0 +1,59 @@
+$brand-red: #991a30;
+$brand-dark-gray: #3b3a37;
+$brand-blue: #122633;
+$brand-light-gray: #eae9e8;
+
+$cta-color: $brand-red;
+
+$gray-blue: $brand-blue;
+$gray-dark: $brand-dark-gray;
+$gray-light: #A2A2A2;
+$gray-mid-gray: $brand-light-gray;
+$gray-off-white: $brand-light-gray;
+$gray-white: $brand-light-gray;
+$error-red: $brand-red;
+$blue: #0092CA;
+$green: #21ba46;
+
+$font-size-header: 26px;
+$font-size-body-title: 18px;
+$font-size-body: 15px;
+$font-size-fine-print: 12px;
+$font-weight-light: 100;
+$font-weight-normal: 400;
+$font-weight-heavy: 600;
+$font-color-default: $gray-dark;
+$font-color-white: $gray-white;
+$font-color-placeholder: $gray-light;
+
+$transition-timing-fast: 100ms;
+$transition-timing-slow: 400ms;
+$transition-animation-default: ease-in-out;
+$transition-default: all $transition-timing-fast $transition-animation-default;
+$transition-slow: $transition-timing-slow $transition-animation-default;
+
+$hover-background-default: #e9e9e9;
+
+$form-input-width: 270px;
+$form-input-height: 40px;
+$form-padding: 20px 20px 30px;
+$form-input-padding: 10px 15px;
+$form-input-border-error: 2px solid $error-red;
+
+$table-header-background: $gray-off-white;
+$table-cell-light: #fff;
+$table-cell-dary: $gray-off-white;
+$table-cell-dark: #e9e9e9;
+$table-cell-padding: 20px;
+
+$border-radius-default: 5px;
+$border-radius-large: 20px;
+$border-size: 1px solid;
+$border-color-default: rgba(34,36,38,.3);
+$border-default: $border-size $border-color-default;
+$border-color-error: $brand-red;
+
+$box-shadow-color: rgba(0,0,0,.15);
+$box-shadow-default: 0 2px 4px 0 $box-shadow-color;
+
+$modal-overlay-default: rgba(0, 0, 0, 0.7);

@@ -1,0 +1,17 @@
+$font-family: 'proxima-nova', 'Helvetica', sans-serif;
+
+.body-title {
+  font-size: $font-size-body-title;
+  margin: 0 0 50px 0;
+}
+
+.body-copy {
+  font-size: $font-size-body;
+  font-weight: $font-weight-normal;
+  line-height: 1.5;
+  margin: 0 0 30px 0;
+
+  &.-white {
+    color: $font-color-white;
+  }
+}

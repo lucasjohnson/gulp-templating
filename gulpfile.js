@@ -117,5 +117,4 @@ gulp.task('watch', function() {
 });
 
 gulp.task('build', gulp.series('clean', 'nunjucks', 'scss', 'useref', 'images', 'css', 'shtml', 'html', 'readme'));
-
 gulp.task('default', gulp.parallel('watch', 'browserSync'));

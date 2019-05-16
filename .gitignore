@@ -2,6 +2,5 @@ node_modules
 build
 .DS_store
 package-lock.json
-src/scss/project
 yarn.lock
 pnpm-lock.yaml

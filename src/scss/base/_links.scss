@@ -1,0 +1,35 @@
+.link {
+  font-size: $font-size-body;
+  font-weight: $font-weight-normal;
+  color: $font-color-default;
+  text-decoration: none;
+  cursor: pointer;
+
+  &:hover {
+    color: $font-color-default;
+    text-decoration: underline;
+  }
+
+  &.-white {
+    color: $font-color-white;
+
+    &:hover {
+      color: $font-color-white;
+    }
+  }
+
+  &.-user {
+    width: 100%;
+    padding: 15px;
+    display: block;
+    position: relative;
+
+    @media(min-width: 1024px) {
+      padding: 15px 20px;
+    }
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}

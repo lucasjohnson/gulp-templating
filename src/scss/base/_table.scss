@@ -1,0 +1,127 @@
+@media(max-width: 767px) {
+
+  table, thead, tbody, th, td, tr {
+		display: block;
+	}
+
+	thead tr {
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+
+	td {
+		border: none;
+		border-right: 1px solid #eee;
+		position: relative;
+	}
+
+	td:before {
+		position: absolute;
+		top: 6px;
+		left: 6px;
+		width: 45%;
+		padding-right: 10px;
+		white-space: nowrap;
+	}
+}
+
+
+.table {
+  width: 100%;
+  background: $table-header-background;
+  margin: 30px 0 60px;
+  border: $border-default;
+  box-shadow: $box-shadow-default;
+  border-spacing: 0;
+
+  > ._table-header {
+    border: none;
+    border-spacing: 0;
+    border-collapse: unset;
+
+    > ._header-row {
+      background: $table-header-background;
+      border-color: transparent;
+
+      > ._header-cell {
+        width: 33%;
+        font-weight: $font-weight-heavy;
+        text-align: left;
+        color: $font-color-default;
+        padding: $table-cell-padding;
+        border-bottom: $border-default;
+      }
+    }
+  }
+
+  > ._table-body {
+    border-color: transparent;
+    border-collapse: collapse;
+    border-spacing: 0;
+
+    > ._body-row {
+      background: $table-header-background;
+      border-color: transparent;
+      border-collapse: collapse;
+      border-spacing: 0;
+      transition: $transition-default;
+
+      &:nth-child(odd) {
+        background: #eeeeee;
+
+        @media(min-width: 1024px) {
+          background: #ffffff;
+        }
+      }
+
+      &.-user:hover {
+        background: inherit;
+
+        @media(min-width: 1024px) {
+          background: $hover-background-default;
+          cursor: pointer;
+        }
+      }
+
+      > ._body-cell {
+        font-size: $font-size-body;
+        font-weight: 400;
+        color: $font-color-default;
+        width: 100%;
+        text-align: left;
+
+        ._mobile-copy,
+        ._copy {
+          width: 50%;
+          display: inline-block;
+          text-align: left;
+          vertical-align: top;
+        }
+
+        @media(min-width: 768px) {
+          width: 33%;
+
+          ._mobile-copy {
+            display: none;
+          }
+
+          ._copy {
+            width: 100%;
+          }
+        }
+      }
+
+      &.-product {
+        > ._body-cell {
+          padding: 15px;
+          vertical-align: top;
+
+          @media(min-width: 1024px) {
+            padding: 15px 20px;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,7 +1,11 @@
 html {
-  box-sizing: border-box;
+  font-family: $font-family;
   font-size: 16px;
-  background: #091d79;
+  color: $font-color-default;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
 }
 
 *,
@@ -17,4 +21,29 @@ body {
 
 body {
   margin: 0;
+  position: relative;
+
+  &[data-ismodalopen='false'] {
+    overflow: auto;
+  }
+  &[data-ismodalopen='true'] {
+    overflow: hidden;
+  }
+}
+
+.main-content {
+  background: #fff;
+}
+
+.content-wrapper {
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 20px;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+
+  @media(min-width: 1024px) {
+    padding: 0 60px;
+  }
 }
