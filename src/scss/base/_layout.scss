@@ -34,16 +34,3 @@ body {
 .main-content {
   background: #fff;
 }
-
-.content-wrapper {
-  width: 100%;
-  max-width: 1200px;
-  padding: 0 20px;
-  margin: 0 auto;
-  overflow: hidden;
-  position: relative;
-
-  @media(min-width: 1024px) {
-    padding: 0 60px;
-  }
-}

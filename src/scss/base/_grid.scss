@@ -1,0 +1,42 @@
+$breakpoint-sml: 600px;
+$breakpoint-med: 960px;
+$breakpoint-lrg: 1175px;
+$breakpoint-x-lrg: 1200px;
+
+$grid-cols: 12;
+
+@for $i from 1 through $grid-cols {
+  .col-#{$i} {
+    flex-basis: 100% / ( $grid-cols / $i ) ;
+    background: red;
+    padding: 20px;
+    text-align: center;
+    color: #fff;
+  }
+}
+
+.container {
+  width: 100%;
+  max-width: $breakpoint-x-lrg;
+  padding: 0 20px;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+
+  &--fluid {
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__row {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 10px 0;
+  }
+
+  @media(min-width: $breakpoint-med) {
+    padding: 0 40px;
+  }
+}
