@@ -73,3 +73,12 @@ div.logo {
   @include image-2x("logo2x.png", 100px, 25px);
 }
 ```
+
+### Gradiant Mixin
+
+```css
+//$start-color, $end-color, $orientation - vertical/horizontal/radial
+.element {
+  @include background-gradient(red, black, 'vertical');
+}
+```
