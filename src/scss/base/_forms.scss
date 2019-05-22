@@ -21,7 +21,7 @@
       visibility: hidden;
 
       &[data-haserror='true'] {
-        color: $error-red;
+        color: $error-color;
         height: auto;
         display: block;
         opacity: 1;
@@ -69,7 +69,7 @@
   box-shadow: $box-shadow-default;
 
   &[data-haserror='true'] {
-    border: 2px solid $error-red;
+    border: 2px solid $error-color;
   }
 
   &:focus {

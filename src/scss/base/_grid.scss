@@ -1,23 +1,41 @@
-$breakpoint-sml: 600px;
-$breakpoint-med: 960px;
-$breakpoint-lrg: 1175px;
-$breakpoint-x-lrg: 1200px;
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
 
 $grid-cols: 12;
 
-@for $i from 1 through $grid-cols {
-  .col-#{$i} {
-    flex-basis: 100% / ( $grid-cols / $i ) ;
-    background: red;
-    padding: 20px;
-    text-align: center;
-    color: #fff;
+$map-grid-props: (
+  '': 0,
+  '-sm': $breakpoint-sm,
+  '-md': $breakpoint-md,
+  '-lg': $breakpoint-lg,
+  '-xl': $breakpoint-xl
+);
+
+@mixin create-media-query($breakpoint) {
+  @if($breakpoint == 0) {
+    @content;
+  } @else {
+    @media screen and (min-width: $breakpoint) {
+      @content;
+    }
+  }
+}
+
+@mixin create-col-classes($modifier, $grid-cols, $breakpoint) {
+  @include create-media-query($breakpoint) {
+    @for $i from 1 through $grid-cols {
+      > .col#{$modifier}-#{$i} {
+        flex-basis: 100% / ( $grid-cols / $i );
+      }
+    }
   }
 }
 
 .container {
   width: 100%;
-  max-width: $breakpoint-x-lrg;
+  max-width: $breakpoint-xl;
   padding: 0 20px;
   margin: 0 auto;
   overflow: hidden;
@@ -34,9 +52,13 @@ $grid-cols: 12;
     display: flex;
     flex-wrap: wrap;
     margin: 10px 0;
+
+    @each $modifier , $breakpoint in $map-grid-props {
+      @include create-col-classes($modifier, $grid-cols, $breakpoint);
+    }
   }
 
-  @media(min-width: $breakpoint-med) {
+  @media(min-width: $breakpoint-md) {
     padding: 0 40px;
   }
 }
