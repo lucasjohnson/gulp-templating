@@ -82,3 +82,10 @@ div.logo {
   @include background-gradient(red, black, 'vertical');
 }
 ```
+
+### Padding/Margin Mixin
+
+```css
+@include padding(1px, 2px, 3px, 4px,);
+@include margin(1px, 2px, 3px, 4px);
+```
