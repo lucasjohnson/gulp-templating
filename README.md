@@ -7,7 +7,7 @@
 - lg: 992px;
 - xl: 1200px;
 
-### Media Queries
+### Media Queries Mixin Usage
 
 ```css
 .element {
@@ -23,5 +23,15 @@
   @include screen(xl) {
     width: 80%;
   }
+}
+```
+### Centering Mixin Usage
+
+```css
+.element {
+  @include center(both);
+}
+.foo-parent {
+  position: relative;
 }
 ```
