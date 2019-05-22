@@ -62,3 +62,14 @@ p {
   @include animation('fade-out 5s 3');
 }
 ```
+
+### Retina Image Mixin
+
+[Easy retina-ready images using SCSS](https://signalvnoise.com/posts/3271-easy-retina-ready-images-using-scss/ "Easy retina-ready images using SCSS")
+
+```css
+div.logo {
+  background: url("logo.png") no-repeat;
+  @include image-2x("logo2x.png", 100px, 25px);
+}
+```
