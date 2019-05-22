@@ -25,6 +25,20 @@ $font-color-default: $brand-dark-gray;
 $font-color-white: $brand-light-gray;
 $font-color-placeholder: $brand-light-gray;
 
+@function calculateRem($size) {
+  $remSize: $size / 16px;
+  @return $remSize * 1rem;
+}
+
+@mixin font($size, $weight, $spacing, $height, $display) {
+  font-size: $size;
+  font-size: calculateRem($size);
+  font-weight: $weight;
+  letter-spacing: $spacing;
+  line-height: $height;
+  display: $display;
+}
+
 .body-title {
   font-size: $font-size-body-title;
   margin: 0 0 50px 0;

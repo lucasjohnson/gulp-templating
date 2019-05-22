@@ -25,6 +25,7 @@
   }
 }
 ```
+
 ### Centering Mixin Usage
 
 ```css
@@ -33,5 +34,13 @@
 }
 .foo-parent {
   position: relative;
+}
+```
+
+### Font Mixin
+
+```css
+p {
+  @include font(14px, 100, 1px, 1.5, null)
 }
 ```
