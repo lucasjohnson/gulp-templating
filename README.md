@@ -44,3 +44,21 @@ p {
   @include font(14px, 100, 1px, 1.5, null)
 }
 ```
+
+### Animation Mixin
+
+```css
+// Define animation name, and properties
+@include keyframes(fade-out) {
+  0% { opacity: 1; }
+  90% { opacity: 0; }
+}
+
+// Add animation to element
+.element {
+  width: 100px;
+  height: 100px;
+  background: black;
+  @include animation('fade-out 5s 3');
+}
+```
