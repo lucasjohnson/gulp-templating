@@ -11,8 +11,12 @@
     <link rel="stylesheet" href="css/main.css">
     <!-- endbuild -->
   </head>
-  <body id="bodyElement" data-ismodalopen="false">
-    <main class="main-content" id="mainContent">{% block content %}{% endblock %}</main>
+  <body data-ismodalopen="false">
+    {% include "partials/header.njk" %}
+    <main class="main-content" id="mainContent">
+      {% block content %}{% endblock %}
+    </main>
+    {% include "partials/footer.njk" %}
     <div class="overlay" id="modalOverlay" data-isvisable="false"></div>
     <div class="_modal" id="modalPopper" data-isvisable="false">
       <button class="_close" id="closeModalButton"><span class="material-icons">close</span></button>
@@ -24,11 +28,19 @@
     <script src="js/lib/xlsx.js"></script>
     <script src="js/lib/FileSaver.js"></script>
     <script src="js/lib/tableexport.js"></script>
-    -->
-    <script src="js/main.js"></script>
-    <!--
+    <script src="js/lib/jquery-3.3.1.min.js"></script>
+    <script src="js/lib/jquery-migrate-1.2.1.min.js"></script>
+    <script src="js/lib/jquery.instagramFeed.min.js"></script>
+    <script src="js/lib/slick.min.js"></script>
+    <script src="js/lib/hyperform.min.js"></script>
+    <script src="js/lib/zxcvbn.js"></script>
+    <script src="js/instagram.js"></script>
+    <script src="js/events.js"></script>
+    <script src="js/search.js"></script>
+    <script src="js/forms.js"></script>
+    <script src="js/sliders.js"></script>
     <script src="js/charts.js"></script>
-  -->
+    -->
     <!-- endbuild -->
   </body>
 </html>
