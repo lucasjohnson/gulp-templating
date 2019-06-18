@@ -1,7 +1,5 @@
 .link {
-  font-size: $font-size-body;
-  font-weight: $font-weight-normal;
-  color: $font-color-default;
+  @include font($font-size-body-copy, $font-weight-normal);
   text-decoration: none;
   cursor: pointer;
 
@@ -10,26 +8,24 @@
     text-decoration: underline;
   }
 
-  &.-white {
-    color: $font-color-white;
-
-    &:hover {
-      color: $font-color-white;
-    }
+  &:visited {
+    color: $font-color-default;
   }
 
-  &.-user {
-    width: 100%;
-    padding: 15px;
-    display: block;
-    position: relative;
-
-    @media(min-width: 1024px) {
-      padding: 15px 20px;
-    }
+  &.-underline {
+    text-decoration: underline;
 
     &:hover {
       text-decoration: none;
+    }
+  }
+
+  &.-white {
+    color: $font-color-white;
+
+    &:hover,
+    &:visited {
+      color: $font-color-white;
     }
   }
 }

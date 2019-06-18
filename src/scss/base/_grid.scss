@@ -1,8 +1,8 @@
-$breakpoint-sm: 576px;
+$breakpoint-sm: 375px;
 $breakpoint-md: 768px;
-$breakpoint-lg: 992px;
+$breakpoint-lg: 1024px;
 $breakpoint-xl: 1200px;
-
+$container-width: 1440px;
 $grid-cols: 12;
 
 $map-grid-props: (
@@ -12,6 +12,8 @@ $map-grid-props: (
   '-lg': $breakpoint-lg,
   '-xl': $breakpoint-xl
 );
+
+
 
 @mixin create-media-query($breakpoint) {
   @if($breakpoint == 0) {
@@ -26,8 +28,9 @@ $map-grid-props: (
 @mixin create-col-classes($modifier, $grid-cols, $breakpoint) {
   @include create-media-query($breakpoint) {
     @for $i from 1 through $grid-cols {
-      > .col#{$modifier}-#{$i} {
+      .col#{$modifier}-#{$i} {
         flex-basis: 100% / ( $grid-cols / $i );
+        position: relative;
       }
     }
   }
@@ -59,32 +62,55 @@ $map-grid-props: (
   }
 }
 
+.mobile-hide {
+  @media(max-width: $breakpoint-md) {
+    display: none !important;
+  }
+}
+
+.desktop-hide {
+  @media(min-width: $breakpoint-lg) {
+    display: none !important;
+  }
+}
+
 .container {
   width: 100%;
-  max-width: $breakpoint-xl;
-  padding: 0 20px;
+  max-width: $container-width;
+  padding: 0 10px;
   margin: 0 auto;
-  overflow: hidden;
   position: relative;
+
+  @include screen(lg) {
+    padding: 0 20px;
+  }
 
   &--fluid {
     max-width: 100%;
     margin: 0;
     padding: 0;
+    overflow: visible;
+  }
+
+  &.-page {
+    margin-bottom: 100px;
+  }
+
+  &.-section {
+    margin-bottom: 30px;
   }
 
   &__row {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    margin: 10px 0;
 
     @each $modifier , $breakpoint in $map-grid-props {
       @include create-col-classes($modifier, $grid-cols, $breakpoint);
     }
-  }
 
-  @media(min-width: $breakpoint-md) {
-    padding: 0 40px;
+    &.-reverse {
+      flex-direction: row-reverse;
+    }
   }
 }
