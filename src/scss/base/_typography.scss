@@ -14,29 +14,39 @@
 @include font-face('proxima-nova', '../fonts/ProximaNova-Regular');
 
 $font-family: 'proxima-nova', 'Helvetica', sans-serif;
-$font-size-header: 26px;
+$font-size-section-title: 28px;
+$font-size-section-sub-title: 24px;
 $font-size-body-title: 18px;
-$font-size-body: 15px;
-$font-size-fine-print: 12px;
+$font-size-body-copy: 16px;
+$font-size-body-copy-small: 14px;
 $font-weight-light: 100;
 $font-weight-normal: 400;
 $font-weight-heavy: 600;
 $font-color-default: $brand-dark-gray;
-$font-color-white: $brand-light-gray;
-$font-color-placeholder: $brand-light-gray;
+$font-color-white: #fff;
+$font-color-placeholder: $brand-dark-gray;
+
+html {
+  font-family: $font-family;
+  font-size: 16px;
+  line-height: 1.25;
+  letter-spacing: 0.5px;
+  color: $font-color-default;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+}
 
 @function calculateRem($size) {
   $remSize: $size / 16px;
   @return $remSize * 1rem;
 }
 
-@mixin font($size, $weight, $spacing, $height, $display) {
+@mixin font($size, $weight) {
   font-size: $size;
   font-size: calculateRem($size);
   font-weight: $weight;
-  letter-spacing: $spacing;
-  line-height: $height;
-  display: $display;
 }
 
 .body-title {
@@ -45,9 +55,8 @@ $font-color-placeholder: $brand-light-gray;
 }
 
 .body-copy {
-  font-size: $font-size-body;
+  font-size: rem($font-size-body-copy);
   font-weight: $font-weight-normal;
-  line-height: 1.5;
   margin: 0 0 30px 0;
 
   &.-white {

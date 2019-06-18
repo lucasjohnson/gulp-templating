@@ -41,7 +41,7 @@
 
 ```css
 p {
-  @include font(14px, 100, 1px, 1.5, null)
+  @include font(14px, 100)
 }
 ```
 
@@ -81,11 +81,4 @@ div.logo {
 .element {
   @include background-gradient(red, black, 'vertical');
 }
-```
-
-### Padding/Margin Mixin
-
-```css
-@include padding(1px, 2px, 3px, 4px,);
-@include margin(1px, 2px, 3px, 4px);
 ```

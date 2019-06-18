@@ -1,3 +1,38 @@
+table {
+  width: 100%;
+  border-spacing: 0;
+  table-layout: fixed;
+
+  thead {
+    border: none;
+    border-spacing: 0;
+    border-collapse: unset;
+
+    tr {
+      border-color: transparent;
+      vertical-align: top;
+      white-space: normal;
+    }
+  }
+
+  tbody {
+    border-color: transparent;
+    border-collapse: collapse;
+    border-spacing: 0;
+
+    tr {
+      border-color: transparent;
+      border-collapse: collapse;
+      border-spacing: 0;
+
+      td {
+        vertical-align: top;
+        word-wrap: break-word
+      }
+    }
+  }
+}
+
 @media(max-width: 767px) {
 
   table, thead, tbody, th, td, tr {
@@ -26,101 +61,39 @@
 	}
 }
 
-
 .table {
   width: 100%;
-  background: $table-header-background;
-  margin: 30px 0 60px;
-  border: $border-default;
-  box-shadow: $box-shadow-default;
-  border-spacing: 0;
+  margin: 0 0 30px;
 
-  > ._table-header {
-    border: none;
-    border-spacing: 0;
-    border-collapse: unset;
+  ._header-row {
+    background: #fff;
 
-    > ._header-row {
-      background: $table-header-background;
-      border-color: transparent;
-
-      > ._header-cell {
-        width: 33%;
-        font-weight: $font-weight-heavy;
-        text-align: left;
-        color: $font-color-default;
-        padding: $table-cell-padding;
-        border-bottom: $border-default;
-      }
+    ._header-cell {
+      @include font($font-size-body-copy-small, $font-weight-normal);
+      text-align: left;
+      padding: 10px;
+      position: relative;
+      border-bottom: $border-default;
     }
   }
 
-  > ._table-body {
-    border-color: transparent;
-    border-collapse: collapse;
-    border-spacing: 0;
+  ._body-row {
+    background-color: #fff;
+    transition: $transition-default;
 
-    > ._body-row {
-      background: $table-header-background;
-      border-color: transparent;
-      border-collapse: collapse;
-      border-spacing: 0;
-      transition: $transition-default;
+    &:nth-child(even) {
+      background: $brand-light-gray;
+    }
 
-      &:nth-child(odd) {
-        background: #eeeeee;
+    ._body-cell {
+      width: 100%;
+      @include font($font-size-body-copy-small, $font-weight-normal);
+      text-align: left;
+      margin: 5px 0;
+      padding: 10px;
 
-        @media(min-width: 1024px) {
-          background: #ffffff;
-        }
-      }
-
-      &.-user:hover {
-        background: inherit;
-
-        @media(min-width: 1024px) {
-          background: $hover-background-default;
-          cursor: pointer;
-        }
-      }
-
-      > ._body-cell {
-        font-size: $font-size-body;
-        font-weight: 400;
-        color: $font-color-default;
-        width: 100%;
-        text-align: left;
-
-        ._mobile-copy,
-        ._copy {
-          width: 50%;
-          display: inline-block;
-          text-align: left;
-          vertical-align: top;
-        }
-
-        @media(min-width: 768px) {
-          width: 33%;
-
-          ._mobile-copy {
-            display: none;
-          }
-
-          ._copy {
-            width: 100%;
-          }
-        }
-      }
-
-      &.-product {
-        > ._body-cell {
-          padding: 15px;
-          vertical-align: top;
-
-          @media(min-width: 1024px) {
-            padding: 15px 20px;
-          }
-        }
+      @include screen(md) {
+        margin: 0;
       }
     }
   }

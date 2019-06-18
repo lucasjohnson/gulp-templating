@@ -1,10 +1,4 @@
 html {
-  font-family: $font-family;
-  font-size: 16px;
-  color: $font-color-default;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-  -moz-osx-font-smoothing: grayscale;
   box-sizing: border-box;
 }
 
@@ -33,4 +27,5 @@ body {
 
 .main-content {
   background: #fff;
+  overflow: hidden;
 }
