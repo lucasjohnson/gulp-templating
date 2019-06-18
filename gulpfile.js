@@ -19,6 +19,7 @@ const cache = require('gulp-cache');
 
 gulp.task('browserSync', function() {
   browserSync.init({
+    browser: ['google chrome'],
     server: {
       baseDir: 'src/'
     }
