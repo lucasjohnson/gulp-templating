@@ -27,7 +27,7 @@ gulp.task('browserSync', function() {
 
 const postCssOptions = [
   assets({ loadPaths: ['images/'] }),
-  autoprefixer({ browsers: ['last 2 versions', '> 2%'] }),
+  autoprefixer(),
   postcssNormalize({
     browsers: 'last 2 versions',
     forceImport: true
