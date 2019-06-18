@@ -1,5 +1,11 @@
 # Gulp Templating
 
+## To Do
+
+- Babel
+- Linting
+- Webpack stream
+
 ### Breakpoints
 
 - sm: 576px;
