@@ -1,7 +1,7 @@
 {
   "name": "gulp-templating",
   "version": "1.0.0",
-  "description": "Front-end Gulp templating with Nunjucks and all the usual suspects.",
+  "description": "Gulp templating with Nunjucks and all the usual suspects.",
   "main": "index.html",
   "repository": "https://gitlab.com/_lucasjohnson/gulp-templating",
   "dependencies": {},
