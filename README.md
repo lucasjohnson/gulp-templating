@@ -1,90 +1,26 @@
 # Gulp Templating
 
-## To Do
+## Commands
+- `gulp`
+- `gulp build`
 
-- Babel
-- Linting
-- Webpack stream
+## Sass Mixins
 
-### Breakpoints
-
-- sm: 576px;
-- md: 768px;
-- lg: 992px;
-- xl: 1200px;
-
-### Media Queries Mixin Usage
-
-```css
+### Media Queries
+```
 .element {
-  @include screen(sm) {
-      width: 20%;
-  }
-  @include screen(md) {
-    width: 40%;
-  }
-  @include screen(lg) {
-    width: 60%;
-  }
-  @include screen(xl) {
-    width: 80%;
-  }
+  @include screen(sm) {} // > 576px
+  @include screen(md) {} // > 768px
+  @include screen(lg) {} // > 992px
+  @include screen(xl) {} // > 1200px
 }
 ```
 
-### Centering Mixin Usage
-
-```css
+### Centering
+```
 .element {
+  @include center(horizontal);
+  @include center(verical);
   @include center(both);
-}
-.foo-parent {
-  position: relative;
-}
-```
-
-### Font Mixin
-
-```css
-p {
-  @include font(14px, 100)
-}
-```
-
-### Animation Mixin
-
-```css
-// Define animation name, and properties
-@include keyframes(fade-out) {
-  0% { opacity: 1; }
-  90% { opacity: 0; }
-}
-
-// Add animation to element
-.element {
-  width: 100px;
-  height: 100px;
-  background: black;
-  @include animation('fade-out 5s 3');
-}
-```
-
-### Retina Image Mixin
-
-[Easy retina-ready images using SCSS](https://signalvnoise.com/posts/3271-easy-retina-ready-images-using-scss/ "Easy retina-ready images using SCSS")
-
-```css
-div.logo {
-  background: url("logo.png") no-repeat;
-  @include image-2x("logo2x.png", 100px, 25px);
-}
-```
-
-### Gradiant Mixin
-
-```css
-//$start-color, $end-color, $orientation - vertical/horizontal/radial
-.element {
-  @include background-gradient(red, black, 'vertical');
 }
 ```
