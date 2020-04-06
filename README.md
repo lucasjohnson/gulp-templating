@@ -7,7 +7,11 @@
 ## Sass Mixins
 
 ### Media Queries
+<<<<<<< HEAD
 ```
+=======
+```css
+>>>>>>> 191cc5d... updated readme
 .element {
   @include screen(sm) {} // > 576px
   @include screen(md) {} // > 768px
@@ -17,7 +21,11 @@
 ```
 
 ### Centering
+<<<<<<< HEAD
 ```
+=======
+```css
+>>>>>>> 191cc5d... updated readme
 .element {
   @include center(horizontal);
   @include center(verical);
